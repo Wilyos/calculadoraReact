@@ -1,4 +1,4 @@
-import {View,Text, Image} from 'react-native'
+import {Image} from 'react-native'
 
 
 function Banner(props){
