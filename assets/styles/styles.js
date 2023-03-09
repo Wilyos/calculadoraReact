@@ -7,7 +7,15 @@ const style = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    Touchables:{
+      padding:10,
+      borderRadius:10,
+      width:60,
+      alignItems:'center'
+    },
+    TextTouch:{color:'white',fontWeight:'bold', fontSize:20},
     
+
   });
 
 const textInput = StyleSheet.create({
@@ -23,4 +31,4 @@ const textInput = StyleSheet.create({
       }
 })
 
-export default {styles,textInput}
+export {style,textInput}
