@@ -11,7 +11,8 @@ const style = StyleSheet.create({
       padding:10,
       borderRadius:10,
       width:60,
-      alignItems:'center'
+      alignItems:'center',
+      marginStart:10
     },
     TextTouch:{color:'white',fontWeight:'bold', fontSize:20},
     
