@@ -31,4 +31,4 @@ const textInput = StyleSheet.create({
       }
 })
 
-export {style,textInput}
+export  {style,textInput}

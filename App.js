@@ -10,6 +10,13 @@ export default function App() {
   const [valor1, setValor1] = useState('')
   const [valor2, setValor2] = useState('')
   const [resultado, setResultado] = useState(0)
+
+  //metodo limpiar
+  let limpiar = ()=>{
+   /* setValor1('')
+    setValor2('')
+    setResultado(0) */
+  }
   //definir metodo del componente
   let calcular = (operador) =>{
     if(valor1 !="" && valor2 !=""){
@@ -27,6 +34,10 @@ export default function App() {
         case "/":
           resulta = parseFloat(valor1) / parseFloat(valor2)
           break
+        case"^":
+          resulta = Math.pow(parseFloat(valor1,valor2))
+        case"r":
+          resulta = Math.sqrt(valor1)
       }
     setResultado(resulta)
     }
@@ -44,41 +55,42 @@ export default function App() {
         <Text style={{color:'#F5C62C', fontWeight:'bold'}}>CALCULADORA BASICA</Text>
         <TextInput placeholder='Ingrese un valor1' style={textInput.inputs} onChangeText={valor1=>setValor1(valor1)} />
         <TextInput placeholder='Ingrese un valor2' style={textInput.inputs} onChangeText={valor2=>setValor2(valor2)} />
-        <Text style={style.TextTouch}>Resultado</Text>
-        <TextInput placeholder='Resultado' style={textInput.inputs} onChangeText={resultado.toFixed(2)}/>
+        <Text style={style.TextTouch}>{resultado.toFixed(2)}</Text>
+        <TextInput  style={textInput.inputs}/>
       </View>
       <View style={{flexDirection:'row',marginTop:20,alignItems:'center'}}>
         <TouchableOpacity style={[style.Touchables,{backgroundColor:'green'}]}
-        onPress={()=>calcular("*")}
-        >
+        onPress={()=>calcular("*")}>
             <Text style={[style.TextTouch]}>*</Text>
         </TouchableOpacity>
       </View>
-      <View style={{flexDirection:'row',marginTop:20,alignItems:'center'}}>
+      <View>
         <TouchableOpacity style={[style.Touchables,{backgroundColor:'green'}]}
-        onPress={()=>calcular("/")}
-        >
+        onPress={()=>calcular("/")}>
             <Text style={[style.TextTouch]}>/</Text>
         </TouchableOpacity>
       </View>
-      <View style={{flexDirection:'row',marginTop:20,alignItems:'center'}}>
         <TouchableOpacity style={[style.Touchables,{backgroundColor:'green'}]}
-        onPress={()=>calcular("+")}
-        >
+        onPress={()=>calcular("+")}>
             <Text style={[style.TextTouch]}>+</Text>
         </TouchableOpacity>
-      </View>
-      <View style={{flexDirection:'row',marginTop:20,alignItems:'center'}}>
+
         <TouchableOpacity style={[style.Touchables,{backgroundColor:'green'}]}
-        onPress={()=>calcular("-")}
-        >
+        onPress={()=>calcular("-")}>
             <Text style={[style.TextTouch]}>-</Text>
         </TouchableOpacity>
-      </View>
-      <View style={{flexDirection:'row',marginTop:20,alignItems:'center'}}>
+
         <TouchableOpacity style={[style.Touchables,{backgroundColor:'green'}]}
-        onPress={()=>calcular("")}
-        >
+        onPress={()=>calcular("^")}>
+            <Text style={[style.TextTouch]}>^</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[style.Touchables,{backgroundColor:'green'}]}
+        onPress={()=>calcular("r")}>
+            <Text style={[style.TextTouch]}>R</Text>
+        </TouchableOpacity>
+        <View>
+        <TouchableOpacity style={[style.Touchables,{backgroundColor:'green'}]}
+        onPress={limpiar()}>
             <Text style={[style.TextTouch]}>C</Text>
         </TouchableOpacity>
       </View>
